@@ -44,3 +44,19 @@ const signedUrl = signer.getSignedUrl({
  const signedUrl = signer.getSignedUrl({ url: 'the url to sign goes here', expires: Math.floor((Date.now() + life_time)/1000), })
  console.log(signedUrl)  //this outputs the URL which may need https://  depending on settings
  
+
+######### alternative not tried:
+
+const cfUtil = require('aws-cloudfront-sign');
+
+const cfPk =`<privatekey>`;
+
+const cfKeyPairId = "<key pair ID>";
+const cfURL = "<URL to sign>";
+
+const signedUrl = cfUtil.getSignedUrl(cfURL, {
+	keypairId: cfKeyPairId,
+	expireTime: Date.now() + 60000,
+	privateKeyString: cfPk
+});
+console.log(signedUrl);
