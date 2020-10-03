@@ -33,3 +33,14 @@ const signedUrl = signer.getSignedUrl({
   expires: Math.floor((Date.now() + life_time)/1000), 
 })
 
+
+//shorten to:
+
+ const AWS = require('aws-sdk')
+ const cloudfrontAccessKeyId = "xxxxxxxxxxxxxx"
+ const cloudFrontPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\nxxxxxxxxxxxxxxxxxxxxx\n-----END RSA PRIVATE KEY-----\n"
+ const signer = new AWS.CloudFront.Signer(cloudfrontAccessKeyId, cloudFrontPrivateKey)
+ const life_time = 30*24*60*60*1000   //30 days
+ const signedUrl = signer.getSignedUrl({ url: 'the url to sign goes here', expires: Math.floor((Date.now() + life_time)/1000), })
+ console.log(signedUrl)  //this outputs the URL which may need https://  depending on settings
+ 
