@@ -8,7 +8,7 @@
 
 
 CF_ACCESS_KEY_ID=`cat file_with_access_key` 
-CF_PRIVATE_KEY=`cat private_key | tr '(char return)' '\n' `
+CF_PRIVATE_KEY=`cat cloud-front-private-rsa-key.pem | tr '\r\n' '\\n' `
 
 in node.js:
 
