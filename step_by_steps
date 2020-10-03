@@ -1,6 +1,6 @@
 
-1. create a public bucket retrict access via OIA
-2. create a distrubution with the OIA and ensure the dist is used self-signed cert
+1. create a public bucket retrict access via OAI (Origin Access Identity)
+2. create a distrubution with the OAI and ensure the dist is used self-signed cert
 3. go to account security credentials (not IAM credentials but account level creds e.g. therefore need root account !!!) and create a new CloudFront access
 4. transcode the private key to a string by changing the '\n' into \n.    Use:  tr '(chariage return)' '\n'    and store in variable as per code below
 5. get the sdk   npm install aws-sdk
